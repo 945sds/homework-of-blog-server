@@ -24,6 +24,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+  published_articles: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Article",
+    },
+  ],
+  liked_articles: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Article",
+    },
+  ],
 });
 
 userSchema.methods.generateJWT = function () {

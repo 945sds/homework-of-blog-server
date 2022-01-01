@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
   res
     .header("token", token)
     .header("access-control-expose-headers", "token")
-    .send(_.pick(user, ["_id", "name", "email", "description"]));
+    .send(_.pick(user, ["_id", "name", "email", "description","published_articles","liked_articles"]));
 });
 
 module.exports = router;

@@ -23,6 +23,10 @@ const articleSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
+  like_number: {
+    type: Number,
+    default: 0,
+  },
 });
 
 function validateArticle(article) {
@@ -30,7 +34,7 @@ function validateArticle(article) {
     title: Joi.string().min(1).max(30).required(),
     description: Joi.string().required(),
     body: Joi.string().min(1).required(),
-    author: Joi.objectId().required()
+    author: Joi.objectId().required(),
   });
   return schema.validate(article);
 }
